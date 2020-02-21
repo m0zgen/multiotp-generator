@@ -22,8 +22,8 @@ else
   # Generate hex key
   SYSTEMKEY=$(for i in $(seq 1 20); do echo -n $(echo "obase=16; $(($RANDOM % 16))" | bc); done; echo)
   # Convert to Base32
-  # USERKEY=$(echo $SYSTEMKEY | xxd -r -p | base32)
-  USERKEY=$(echo -n $SYSTEMKEY | xxd -r -p | $SCRIPT_PATH/base32.pl)
+  USERKEY=$(echo $SYSTEMKEY | xxd -r -p | base32)
+  # USERKEY=$(echo -n $SYSTEMKEY | xxd -r -p | $SCRIPT_PATH/base32.pl)
   # Generate Windows user password
   USERPASS=$(date +%s | sha256sum | base64 | head -c 8 ; echo)
 

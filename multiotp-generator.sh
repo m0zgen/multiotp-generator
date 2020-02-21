@@ -8,7 +8,7 @@ PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 SCRIPT_PATH=$(cd `dirname "${BASH_SOURCE[0]}"` && pwd)
 
 # Need components
-# yum install xxd vim-common perl-MIME-Base32 -y
+# yum install bc xxd vim-common perl-MIME-Base32 -y
 
 # Retreive user name
 echo -n "Enter User name and press [ENTER]: "

@@ -8,7 +8,7 @@ PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 SCRIPT_PATH=$(cd `dirname "${BASH_SOURCE[0]}"` && pwd)
 
 # Need components (CentOS)
-yum install xxd vim-common perl-MIME-Base32 -y
+# yum install xxd vim-common perl-MIME-Base32 -y
 
 # Retreive user name
 echo -n "Enter User name and press [ENTER]: "
@@ -23,7 +23,7 @@ else
   SYSTEMKEY=$(for i in $(seq 1 20); do echo -n $(echo "obase=16; $(($RANDOM % 16))" | bc); done; echo)
   # Convert to Base32
   # USERKEY=$(echo $SYSTEMKEY | xxd -r -p | base32)
-  USERKEY=$(echo -n $SYSTEMKEY | xxd -r -p | ././base32.pl)
+  USERKEY=$(echo -n $SYSTEMKEY | xxd -r -p | $SCRIPT_PATH/base32.pl)
   # Generate Windows user password
   USERPASS=$(date +%s | sha256sum | base64 | head -c 8 ; echo)
 
